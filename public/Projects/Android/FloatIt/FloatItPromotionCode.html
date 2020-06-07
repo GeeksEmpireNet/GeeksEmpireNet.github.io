@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <link rel="icon" href="https://i.imgur.com/8mw8BWt.png">
+  <meta name="description" content="#FloatIt 🎈 | Float It To Become Master Of Multitasking">
+  <title>#FloatIt 🎈 | Become Master Of Multitasking ⚡ </title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+
+      align-content: center;
+    }
+
+    .coupon {
+      border: 11px dotted #FE5475;
+      width: 100%;
+      border-radius: 19px;
+      margin: 0 auto;
+      max-width: 451px;
+    }
+
+    .container {
+      border-radius: 2.3%;
+      padding: 2px 16px;
+      background-color: #fafbff;
+      color: black;
+    }
+
+    .application-logo {
+      background: #fafbff;
+      text-align: center;
+    }
+
+    img {
+      border-top-left-radius: 51%;
+      border-top-right-radius: 51%;
+      border-bottom-left-radius: 51%;
+      border-bottom-right-radius: 13%;
+      align-content: center;
+      width: 79%;
+    }
+
+    .expire {
+      color: red;
+    }
+
+    .btn {
+      position: relative;
+
+      width: 100%;
+      height: 50px;
+
+      font-size: larger;
+      font-family: 'Segoe UI';
+
+      display: block;
+      margin: 30px auto;
+      padding: 0;
+
+      overflow: hidden;
+
+      border-width: 0;
+      outline: none;
+      border-radius: 13px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+      background-color: #237DAE;
+      color: #ecf0f1;
+
+      transition: background-color .3s;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background-color: #008dda;
+    }
+
+    .btn>* {
+      position: relative;
+    }
+
+    .btn span {
+      display: block;
+      padding: 12px 24px;
+    }
+
+    .btn:before {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      display: block;
+      width: 0;
+      padding-top: 0;
+
+      border-radius: 100%;
+
+      background-color: rgba(236, 240, 241, .3);
+
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .btn:active:before {
+      width: 120%;
+      padding-top: 120%;
+
+      transition: width .2s ease-out, padding-top .2s ease-out;
+    }
+  </style>
+</head>
+
+<body bgcolor="#0a0f18" style="align-content: center; -ms-transform: translateY(10%); transform: translateY(10%);">
+
+  <div class="coupon">
+
+    <div class="container">
+
+      <h3>Geeks Empire | Float It 🎈</h3>
+
+
+      <div class="application-logo">
+        <img
+          src="https://lh3.googleusercontent.com/yS28x2BrP45C6mfVPP7rt4Zs84X18kBEZfNF3BsbY4IyUT8VAVtoPT-nNDD5B8fRsnuF=s512"
+          alt="Float It 🎈 | Float It To Become Master Of Multitasking ⚡ "
+          title="Float It 🎈 | Float It To Become Master Of Multitasking ⚡ " />
+      </div>
+
+      <div>
+
+        <h2><b>Float It To Become Master Of Multitasking ⚡ </b></h2>
+
+        <p>
+          <big>What can you do to <b>Switch Quickly</b> to another App?! (<font color="#0f9d58"><b>As Fast As
+                Possible</b></font>) <br />
+            ✔️ <b>Float It Solution</b> (You Only need One Click to Switch Apps...) <br />
+            1️⃣ <b>Click on <font color="#1C7EE7">Floating Shortcuts</font> to Open other Apps Immediately</b> 🆒 😎
+        </p>
+        <p id="PromotionCodeLink" style="color: transparent; font-size: xx-small;"></p>
+        <button class="btn" id="PromotionCodeLink" onclick="promotionButtonClick()">✨ Get Promotion Code </button>
+
+        <p class="expire">Expires On: September, 07, 2020</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+  <!-- Firebase -->
+  <script>
+
+    var aPromotionCode;
+
+    function extractPromotionCode() {
+      //Save: localStorage.setItem("storageName", "GeeksEmpire");
+      //Read: localStorage.getItem("storageName");
+
+      try {
+        var url = document.location.href,
+          params = url.split('?')[1].split('&'),
+          data = {}, tmp;
+        for (var i = 0, l = params.length; i < l; i++) {
+          tmp = params[i].split('=');
+          data[tmp[0]] = tmp[1];
+        }
+
+        //window.location.href = `https://play.google.com/store?code=${data.PromotionCode}`;
+        aPromotionCode = data.PromotionCode;
+        document.getElementById('PromotionCodeLink').innerHTML = `https://play.google.com/store?code=${data.PromotionCode}`;
+
+        localStorage.setItem("PromotionCode", `${data.PromotionCode}`);
+        localStorage.setItem("PromotionCodeRedeemed", "Redeemed");
+
+        window.setTimeout(function () {
+
+          window.location.replace(document.getElementById('PromotionCodeLink').innerHTML);
+
+        }, 13000666);
+
+      } catch (error) {
+        console.error(error);
+
+        document.getElementById('PromotionCodeLink').innerHTML = `https://play.google.com/store/apps/details?id=net.geekstools.floatshort.PRO`;
+
+        window.setTimeout(function () {
+
+          window.location.href = document.getElementById('PromotionCodeLink').innerHTML;
+
+        }, 5000);
+
+      }
+
+    }
+
+    function promotionButtonClick() {
+      console.log("*** " + document.getElementById('PromotionCodeLink').innerHTML + " ***")
+
+      if (typeof myVar !== 'undefined') {
+
+        /* Firebase */
+
+        var firebaseConfig = {
+          apiKey: "AIzaSyBvj1dZrlsRRNRzvMC-MU-Wz0iv1jIrRFU",
+          authDomain: "geeks-empire-website.firebaseapp.com",
+          databaseURL: "https://geeks-empire-website.firebaseio.com",
+          projectId: "geeks-empire-website",
+          storageBucket: "geeks-empire-website.appspot.com",
+          messagingSenderId: "755751070503",
+          appId: "1:755751070503:web:8e03f1ae45f60447"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        var firestore = firebase.firestore();
+
+        var fieldValue = firebase.firestore.FieldValue;
+
+        firestore.collection('Android').doc('FloatIt').update({
+          "PromotionCodes": fieldValue.arrayRemove(aPromotionCode)
+        }).then(function () {
+          console.log("Document Successfully Updated");
+          window.location.replace(document.getElementById('PromotionCodeLink').innerHTML);
+        })
+          .catch(function (error) {
+            console.error("Error Updating Document: ", error);
+          });
+
+        /* Firebase */
+
+      }
+
+    }
+
+    var isMobile = {
+      Android: function () {
+        return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function () {
+        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+      },
+      any: function () {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+    };
+
+    if (isMobile.Android()) {
+
+      if (localStorage.getItem("PromotionCodeRedeemed") == "Redeemed") {
+
+        var redeemedPromotionCodeLink = `https://play.google.com/store?code=${localStorage.getItem("PromotionCode")}`;
+
+        document.getElementById('PromotionCodeLink').innerHTML = redeemedPromotionCodeLink;
+
+      } else {
+
+        extractPromotionCode()
+
+      }
+
+    } else {
+      console.log("*** Desktop Detected ***");
+
+      document.body.innerHTML = "";
+
+      window.setTimeout(function () {
+
+        alert("Please, Visit This Link From An Android Device 🤖");
+
+      }, 333);
+
+      window.location.href = 'https://play.google.com/store/apps/details?id=net.geekstools.floatshort.PRO';
+
+    }
+
+  </script>
+
+</body>
+
+</html>
