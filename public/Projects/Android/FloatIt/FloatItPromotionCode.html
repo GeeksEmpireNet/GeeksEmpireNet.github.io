@@ -13,12 +13,31 @@
       align-content: center;
     }
 
+    .policytext {
+      display: inline-block;
+    }
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    }
+
+    @font-face {
+      font-family: "IrisUPC";
+
+      src: url("./Assets/upcil.woff2") format("woff2");
+      /* Modern Browsers */
+      font-weight: normal;
+      font-style: normal;
+    }
+
     .coupon {
       border: 11px dotted #FE5475;
-      width: 100%;
       border-radius: 19px;
       margin: 0 auto;
-      max-width: 451px;
     }
 
     .container {
@@ -39,20 +58,23 @@
       border-bottom-left-radius: 51%;
       border-bottom-right-radius: 13%;
       align-content: center;
-      width: 79%;
+      width: 55%;
+
+      margin-top: 0%;
+      margin-bottom: 10%;
     }
 
     .expire {
       color: red;
     }
 
-    .btn {
+    .materialButton {
       position: relative;
 
       width: 100%;
-      height: 50px;
+      height: 91px;
 
-      font-size: larger;
+      font-size: 51px;
       font-family: 'Segoe UI';
 
       display: block;
@@ -72,21 +94,21 @@
       transition: background-color .3s;
     }
 
-    .btn:hover,
-    .btn:focus {
+    .materialButton:hover,
+    .materialButton:focus {
       background-color: #008dda;
     }
 
-    .btn>* {
+    .materialButton>* {
       position: relative;
     }
 
-    .btn span {
+    .materialButton span {
       display: block;
       padding: 12px 24px;
     }
 
-    .btn:before {
+    .materialButton:before {
       content: "";
 
       position: absolute;
@@ -108,7 +130,7 @@
       transform: translate(-50%, -50%);
     }
 
-    .btn:active:before {
+    .materialButton:active:before {
       width: 120%;
       padding-top: 120%;
 
@@ -117,14 +139,15 @@
   </style>
 </head>
 
-<body bgcolor="#0a0f18" style="align-content: center; -ms-transform: translateY(10%); transform: translateY(10%);">
+<body bgcolor="#0a0f18" style="align-content: center; transform: translateY(15%);">
 
   <div class="coupon">
 
     <div class="container">
 
-      <h3>Geeks Empire | Float It 🎈</h3>
-
+      <p style="font-size: 83px; font-family: 'IrisUPC'; margin-top: 0px;">
+        <b><a href="https://twitter.com/GeeksEmpire" target="_blank" style="color: #008dda; text-decoration: none;">Geeks Empire</a></b> | <b>Float It</b> 🎈
+      </p>
 
       <div class="application-logo">
         <img
@@ -135,16 +158,23 @@
 
       <div>
 
-        <h2><b>Float It To Become Master Of Multitasking ⚡ </b></h2>
+        <h2><b> Float It To Become Master Of Multitasking ⚡ </b></h2>
 
         <p>
-          <big>What can you do to <b>Switch Quickly</b> to another App?! (<font color="#0f9d58"><b>As Fast As
-                Possible</b></font>) <br />
+          <big>What can you do to <b>Switch Quickly</b> to another App?! (<font color="#0f9d58">As Fast As
+              Possible</font>) <br />
             ✔️ <b>Float It Solution</b> (You Only need One Click to Switch Apps...) <br />
             1️⃣ <b>Click on <font color="#1C7EE7">Floating Shortcuts</font> to Open other Apps Immediately</b> 🆒 😎
+            <br />
+            <br />
+            <font color="#0f9d58"><b> ✨ Please Rate & Write Review 🌟🌟🌟🌟🌟 </b></font>
         </p>
+
         <p id="PromotionCodeLink" style="color: transparent; font-size: xx-small;"></p>
-        <button class="btn" id="PromotionCodeLink" onclick="promotionButtonClick()">✨ Get Promotion Code </button>
+
+
+        <button class="materialButton" id="PromotionCodeLink" onclick="promotionButtonClick()"> ✨ Get Promotion Code
+        </button>
 
         <p class="expire">Expires On: September, 07, 2020</p>
 
