@@ -25,12 +25,14 @@ exports.addJsonDatabaseToFirestore = functions.runWith(runtimeOptions).https.onR
     })
         .then(ref => {
 
-            res.status(200);
+            res.status(200).send("Json Database Added To Firestore Successfully.");
 
         })
         .catch(err => {
 
             console.log(err);
+
+            res.send("Json Database Error");
 
         });
 
@@ -176,3 +178,27 @@ async function sendEmailToUsersFloatingWidgets(email) {
 
     return "Email Sent";
 }
+
+/*[Retrieve Public Internet Address]*/
+exports.fetchUserPublicInternetAddress = functions.https.onRequest((req, res) => {
+
+    var ipAddress;
+
+    const ipAddressFastlyIP = req.headers['fastly-client-ip'];
+    const ipAddressForwardX = req.headers['x-forwarded-for'];
+
+    if (ipAddressFastlyIP != "undefined") {
+        ipAddress = ipAddressFastlyIP;
+    }
+    if (ipAddressForwardX != "undefined") {
+        ipAddress = ipAddressForwardX;
+    }
+
+    var callBackResult = {
+        data: {
+            "ClientAddressIP": ipAddress,
+        },
+    };
+
+    res.send(callBackResult);
+});
