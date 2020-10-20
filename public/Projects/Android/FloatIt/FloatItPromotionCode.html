@@ -146,7 +146,8 @@
     <div class="container">
 
       <p style="font-size: 83px; font-family: 'IrisUPC'; margin-top: 0px;">
-        <b><a href="https://twitter.com/GeeksEmpire" target="_blank" style="color: #008dda; text-decoration: none;">Geeks Empire</a></b> | <b>Float It</b> 🎈
+        <b><a href="https://twitter.com/GeeksEmpire" target="_blank"
+            style="color: #008dda; text-decoration: none;">Geeks Empire</a></b> | <b>Float It</b> 🎈
       </p>
 
       <div class="application-logo">
@@ -173,8 +174,7 @@
         <p id="PromotionCodeLink" style="color: transparent; font-size: xx-small;"></p>
 
 
-        <button class="materialButton" id="PromotionCodeLink" onclick="promotionButtonClick()"> ✨ Get Promotion Code
-        </button>
+        <button class="materialButton" id="PromotionCodeLink" onclick="promotionButtonClick()"> ✨ Get Promotion Code</button>
 
         <p class="expire">Expires On: September, 07, 2020</p>
 
@@ -193,7 +193,7 @@
   <!-- Firebase -->
   <script>
 
-    var aPromotionCode;
+    var aPromotionCode = "NULL";
 
     function extractPromotionCode() {
       //Save: localStorage.setItem("storageName", "GeeksEmpire");
@@ -239,7 +239,7 @@
     function promotionButtonClick() {
       console.log("*** " + document.getElementById('PromotionCodeLink').innerHTML + " ***")
 
-      if (typeof aPromotionCode !== 'undefined') {
+      if (typeof aPromotionCode != "NULL") {
 
         /* Firebase */
 
@@ -265,14 +265,17 @@
           console.log("Document Successfully Updated");
           window.location.replace(document.getElementById('PromotionCodeLink').innerHTML);
         })
-          .catch(function (error) {
-            console.error("Error Updating Document: ", error);
-          });
+        .catch(function (error) {
+          console.error("Error Updating Document: ", error);
+        });
 
         /* Firebase */
 
-      }
+      } else {
 
+        alert(" Please, Check Internet Connection & Try Again ");
+
+      }
     }
 
     var isMobile = {
